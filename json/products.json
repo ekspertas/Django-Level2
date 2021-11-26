@@ -1,0 +1,51 @@
+[
+  {
+    "category": "дом",
+    "name": "дом 1",
+    "image": "products/chair1.jpg",
+    "price": "235",
+    "quantity": "5"
+  },
+  {
+    "category": "дом",
+    "name": "дом 2",
+    "image": "products/chair2.jpg",
+    "price": "256",
+    "quantity": "23"
+  },
+    {
+    "category": "офис",
+    "name": "офис 1",
+    "image": "products/chair3.jpg",
+    "price": "564",
+    "quantity": "10"
+  },
+    {
+    "category": "офис",
+    "name": "офис 2",
+    "image": "products/chair4.jpg",
+    "price": "458",
+    "quantity": "32"
+  },
+    {
+    "category": "классика",
+    "name": "классика 1",
+    "image": "products/product-41.jpg",
+    "price": "852",
+    "quantity": "15"
+  },
+      {
+    "category": "классика",
+    "name": "классика 2",
+    "image": "products/product-51.jpg",
+    "price": "756",
+    "quantity": "25"
+  },
+      {
+    "category": "модерн",
+    "name": "модерн 1",
+    "image": "products/product-61.jpg",
+    "price": "896",
+    "quantity": "5"
+  }
+]
