@@ -4,6 +4,7 @@ from social_core.exceptions import AuthForbidden
 import requests
 
 from authapp.models import ShopUserProfile
+from geekshop import settings
 
 
 def save_user_profile(backend, user, response, *args, **kwargs):
@@ -12,7 +13,7 @@ def save_user_profile(backend, user, response, *args, **kwargs):
 
     url_method = 'https://api.vk.com/method/'
     access_token = response.get('access_token')
-    fields = ','.join(['bdate', 'sex', 'about'])
+    fields = ','.join(['bdate', 'sex', 'about', 'photo'])
 
     api_url = f'{url_method}users.get?fields={fields}&access_token={access_token}&v=5.131'
 
@@ -22,7 +23,7 @@ def save_user_profile(backend, user, response, *args, **kwargs):
         return
 
     data_json = response.json()['response'][0]
-    print(data_json)
+
     if 'sex' in data_json:
         if data_json['sex'] == 1:
             user.shopuserprofile.gender = ShopUserProfile.FEMALE
@@ -43,5 +44,13 @@ def save_user_profile(backend, user, response, *args, **kwargs):
 
     if 'about' in data_json:
         user.shopuserprofile.about = data_json['about']
+
+    if 'photo' in data_json:
+        photo_path = f'users_avatars/{user.pk}.jpeg'
+        full_photo_path = f'{settings.MEDIA_ROOT}/{photo_path}'
+        photo_data = requests.get(data_json['photo'])
+        with open(full_photo_path, 'wb') as photo_file:
+            photo_file.write(photo_data.content)
+        user.avatar = photo_path
 
     user.save()
