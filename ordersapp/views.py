@@ -1,7 +1,7 @@
 from django.db import transaction
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.forms.models import inlineformset_factory
 
 from basketapp.models import Basket
@@ -13,7 +13,7 @@ class OrderListView(ListView):
     model = Order
 
     def get_queryset(self):
-        return Order.objects.filter(user=self.request.user)
+        return super().get_queryset().filter(user=self.request.user)
 
 
 class OrderCreateView(CreateView):
@@ -90,3 +90,20 @@ class OrderUpdateView(UpdateView):
             self.object.delete()
 
         return super().form_valid(form)
+
+
+class OrderDeleteView(DeleteView):
+    model = Order
+    success_url = reverse_lazy('order:list')
+
+
+class OrderDetailView(DetailView):
+    model = Order
+
+
+def order_forming_complete(request, pk):
+    order = Order.objects.get(pk=pk)
+    order.status = Order.STATUS_SEND_TO_PROCEED
+    order.save()
+    return HttpResponseRedirect(reverse('order:list'))
+
