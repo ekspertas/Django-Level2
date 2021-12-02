@@ -4,7 +4,7 @@ from social_core.exceptions import AuthForbidden
 import requests
 
 from authapp.models import ShopUserProfile
-from geekshop import settings
+from django.conf import settings
 
 
 def save_user_profile(backend, user, response, *args, **kwargs):
