@@ -41,7 +41,7 @@ class Order(models.Model):
         for item in self.orderitems.all():
             item.product.quantity += item.quantity
             item.product.save()
-            self.is_active = False
+        self.is_active = False
         self.save()
 
 
