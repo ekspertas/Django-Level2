@@ -99,7 +99,7 @@ AUTH_USER_MODEL = 'authapp.ShopUser'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'geekshop',
+        'NAME': 'geekshop',
         'USER': 'postgres'
     }
 }
