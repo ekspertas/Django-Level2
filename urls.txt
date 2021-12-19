@@ -1,0 +1,10 @@
+BASE_URL/
+BASE_URL/products/
+BASE_URL/products/category/1/
+BASE_URL/basket/
+BASE_URL/order/
+BASE_URL/order/update/1/
+BASE_URL/auth/edit/
+BASE_URL/admin/users/
+BASE_URL/admin/users/update/1/
+BASE_URL/admin/categories/
