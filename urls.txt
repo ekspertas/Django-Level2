@@ -1,4 +1,4 @@
-http://89.108.83.226/auth/login POST username=django&password=geekbrains
+http://89.108.83.226/auth/login/ POST username=django&password=geekbrains
 http://89.108.83.226/
 http://89.108.83.226/products/
 http://89.108.83.226/products/category/1/
