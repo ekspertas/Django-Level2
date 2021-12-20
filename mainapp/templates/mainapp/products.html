@@ -22,17 +22,17 @@
 			</div>
 			<!-- 			<div class="slider-control">
 				<div class="block">
-					<a href="#"><img src="{% static '/img/controll.jpg' %}" alt="">
+					<a href="#"><img src="{% static 'img/controll.jpg' %}" alt="">
 						<div class="text"></div>
 					</a>
 				</div>
 				<div class="block">
-					<a href="#"><img src="{% static '/img/controll1.jpg' %}" alt="">
+					<a href="#"><img src="{% static 'img/controll1.jpg' %}" alt="">
 						<div class="text"></div>
 					</a>
 				</div>
 				<div class="block">
-					<a href="#"><img src="{% static '/img/controll2.jpg' %}" alt="">
+					<a href="#"><img src="{% static 'img/controll2.jpg' %}" alt="">
 						<div class="text"></div>
 					</a>
 				</div>
@@ -55,14 +55,14 @@
 	<div class="related">
 		<div class="title clearfix">
 			<h2>Похожие продукты</h2>
-			<a class="explore" href="#">показать все <img src="{% static '/img/arrow.png' %}" alt=""></a>
+			<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
 		</div>
 		<div class="related-products clearfix">
 			{% for product in same_products %}
 			<div class="block">
 				<a href="{% url 'mainapp:product' product.pk %}"><img src="/media/{{ product.image }}" alt="">
 					<div class="text">
-						<img src="{% static '/img/icon-hover.png' %}" alt="img">
+						<img src="{% static 'img/icon-hover.png' %}" alt="img">
 						<h4>{{ product.name }}</h4>
 						<p>{{ product.category.name }}</p>
 					</div>

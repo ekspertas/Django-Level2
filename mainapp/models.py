@@ -5,7 +5,7 @@ class ProductCategory(models.Model):
     name = models.CharField(max_length=64, unique=True,
                             verbose_name='название')
     description = models.TextField(verbose_name='описание')
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(db_index=True, default=True)
 
     def __str__(self):
         return f'{self.name}'
@@ -29,7 +29,7 @@ class Product(models.Model):
         decimal_places=2, max_digits=10, default=0, verbose_name='цена')
     quantity = models.PositiveSmallIntegerField(
         default=0, verbose_name='количество')
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(db_index=True,default=True)
 
     def __str__(self):
         return f'{self.name} ({self.category.name})'
